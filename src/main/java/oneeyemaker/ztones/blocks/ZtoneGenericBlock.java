@@ -16,6 +16,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import oneeyemaker.ztones.Tags;
 import oneeyemaker.ztones.ZtoneType;
+import oneeyemaker.ztones.Ztones;
 
 public class ZtoneGenericBlock extends Block {
 
@@ -33,6 +34,7 @@ public class ZtoneGenericBlock extends Block {
         } else {
             this.setResistance(30.0f);
         }
+        this.setCreativeTab(Ztones.CreativeTab);
     }
 
     @Override
@@ -79,7 +81,7 @@ public class ZtoneGenericBlock extends Block {
                 int neighborMetadata = world.getBlockMetadata(
                     x - Facing.offsetsXForSide[side],
                     y - Facing.offsetsYForSide[side],
-                    z - Facing.offsetsYForSide[side]);
+                    z - Facing.offsetsZForSide[side]);
                 return metadata != neighborMetadata;
             }
         }
