@@ -13,7 +13,7 @@ import oneeyemaker.ztones.proxy.CommonProxy;
 @Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.7.10]")
 public class Ztones {
 
-    public static final Logger Log = LogManager.getLogger(Tags.MODID);
+    public static final Logger LOG = LogManager.getLogger(Tags.MODID);
 
     @SidedProxy(
         clientSide = "oneeyemaker.ztones.proxy.ClientProxy",
