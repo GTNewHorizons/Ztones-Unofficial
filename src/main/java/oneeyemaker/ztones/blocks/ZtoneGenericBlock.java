@@ -34,7 +34,7 @@ public class ZtoneGenericBlock extends Block {
         } else {
             this.setResistance(30.0f);
         }
-        this.setCreativeTab(Ztones.CreativeTab);
+        this.setCreativeTab(Ztones.creativeTab);
     }
 
     @Override

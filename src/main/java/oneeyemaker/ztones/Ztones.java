@@ -20,7 +20,7 @@ public class Ztones {
         serverSide = "oneeyemaker.ztones.proxy.CommonProxy")
     public static CommonProxy proxy;
 
-    public static ModCreativeTab CreativeTab = new ModCreativeTab();
+    public static ModCreativeTab creativeTab = new ModCreativeTab();
 
     @Mod.EventHandler
     public void preInitialize(FMLPreInitializationEvent event) {

@@ -13,7 +13,7 @@ import oneeyemaker.ztones.blocks.ModBlocks;
 
 public class ModCreativeTab extends CreativeTabs {
 
-    private static final int iconUpdateInterval = 80;
+    private static final int ICON_UPDATE_INTERVAL = 80;
     private long lastUpdateTime = Long.MIN_VALUE;
     private int currentMetadata = 0;
 
@@ -52,7 +52,7 @@ public class ModCreativeTab extends CreativeTabs {
         long currentTime = world.getTotalWorldTime();
         if (currentTime < this.lastUpdateTime) {
             this.lastUpdateTime = currentTime;
-        } else if (currentTime >= this.lastUpdateTime + iconUpdateInterval) {
+        } else if (currentTime >= this.lastUpdateTime + ICON_UPDATE_INTERVAL) {
             this.lastUpdateTime = currentTime;
             this.currentMetadata = world.rand.nextInt(ZtoneType.Variants);
         }
