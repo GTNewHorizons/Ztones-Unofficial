@@ -1,13 +1,10 @@
 package oneeyemaker.ztones;
 
 import java.io.File;
-import java.util.HashMap;
 
 import net.minecraftforge.common.config.Configuration;
 
 public class ModConfiguration {
-
-    private static final HashMap<ZtoneType, Boolean> enabledBlocks = new HashMap<>();
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -17,14 +14,10 @@ public class ModConfiguration {
                 "blocks",
                 true,
                 String.format("Should %s block be registered in game?", type.name()));
-            enabledBlocks.put(type, isEnabled);
+            type.setEnabled(isEnabled);
         }
         if (configuration.hasChanged()) {
             configuration.save();
         }
-    }
-
-    public static boolean isBlockTypeEnabled(ZtoneType type) {
-        return enabledBlocks.get(type);
     }
 }

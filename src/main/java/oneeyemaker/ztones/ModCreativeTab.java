@@ -15,10 +15,7 @@ public class ModCreativeTab extends CreativeTabs {
 
     @Override
     public Item getTabIconItem() {
-        Block block = ModBlocks.getBlock(ZtoneType.Tile);
-        if (block == null) {
-            block = Blocks.double_stone_slab;
-        }
+        Block block = ZtoneType.Tile.isEnabled() ? ModBlocks.getBlock(ZtoneType.Tile) : Blocks.double_stone_slab;
         return Item.getItemFromBlock(block);
     }
 }

@@ -41,6 +41,20 @@ public enum ZtoneType {
 
     public static final int Variants = 16;
 
+    private boolean isEnabled;
+
+    ZtoneType() {
+        this.isEnabled = true;
+    }
+
+    public boolean isEnabled() {
+        return this.isEnabled;
+    }
+
+    public void setEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
+    }
+
     public boolean isGlassLike() {
         return this == Glaxx;
     }
