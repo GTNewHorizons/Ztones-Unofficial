@@ -109,6 +109,10 @@ public class ZtoneGenericBlock extends Block {
     }
 
     public String getRegistryName() {
-        return String.format("tile.%sBlock", this.type != ZtoneType.Tile ? this.type.toString() : "stoneTile");
+        return switch (this.type) {
+            case Glaxx -> "tile.glaxx";
+            case Tile -> "stoneTile";
+            default -> String.format("tile.%sBlock", this.type);
+        };
     }
 }
