@@ -3,13 +3,13 @@ package oneeyemaker.ztones.proxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import oneeyemaker.ztones.ConfigurationHandler;
+import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.blocks.ModBlocks;
 
 public class CommonProxy {
 
     public void preInitialize(FMLPreInitializationEvent event) {
-        ConfigurationHandler.synchronizeConfiguration(event.getSuggestedConfigurationFile());
+        ModConfiguration.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         ModBlocks.registerBlocks();
     }
 

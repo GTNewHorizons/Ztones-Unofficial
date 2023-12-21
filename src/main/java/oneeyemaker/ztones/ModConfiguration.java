@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import net.minecraftforge.common.config.Configuration;
 
-public class ConfigurationHandler {
+public class ModConfiguration {
 
     private static final HashMap<ZtoneType, Boolean> enabledBlocks = new HashMap<>();
 

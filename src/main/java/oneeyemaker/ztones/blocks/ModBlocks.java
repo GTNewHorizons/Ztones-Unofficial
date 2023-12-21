@@ -3,7 +3,7 @@ package oneeyemaker.ztones.blocks;
 import java.util.HashMap;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import oneeyemaker.ztones.ConfigurationHandler;
+import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.ZtoneType;
 import oneeyemaker.ztones.items.ZtoneGenericItemBlock;
 
@@ -17,7 +17,7 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         for (ZtoneType type : ZtoneType.values()) {
-            if (ConfigurationHandler.isBlockTypeEnabled(type)) {
+            if (ModConfiguration.isBlockTypeEnabled(type)) {
                 ZtoneGenericBlock ztoneGenericBlock = new ZtoneGenericBlock(type);
                 genericBlocks.put(type, ztoneGenericBlock);
                 GameRegistry
