@@ -6,7 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class ModConfiguration {
 
-    public static boolean enableCreatureSpawnOnZtones = false;
+    public static boolean isCreatureSpawnOnZtonesEnabled = false;
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -18,10 +18,10 @@ public class ModConfiguration {
                 String.format("Should %s block be registered in game?", type.name()));
             type.setEnabled(isEnabled);
         }
-        enableCreatureSpawnOnZtones = configuration.getBoolean(
+        isCreatureSpawnOnZtonesEnabled = configuration.getBoolean(
             "enableCreatureSpawnOnZtones",
             "general",
-            enableCreatureSpawnOnZtones,
+            isCreatureSpawnOnZtonesEnabled,
             "Can mobs spawn on decorative blocks?");
         if (configuration.hasChanged()) {
             configuration.save();

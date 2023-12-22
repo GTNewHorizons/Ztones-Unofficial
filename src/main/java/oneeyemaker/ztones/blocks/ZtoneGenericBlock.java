@@ -112,7 +112,7 @@ public class ZtoneGenericBlock extends Block {
 
     @Override
     public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
-        return ModConfiguration.enableCreatureSpawnOnZtones;
+        return ModConfiguration.isCreatureSpawnOnZtonesEnabled;
     }
 
     public String getRegistryName() {

@@ -25,7 +25,7 @@ public class SimpleItemBlock extends ItemBlock {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List<String> list, boolean flag) {
-        if (!ModConfiguration.enableCreatureSpawnOnZtones) {
+        if (!ModConfiguration.isCreatureSpawnOnZtonesEnabled) {
             list.add(
                 EnumChatFormatting.ITALIC
                     + StatCollector.translateToLocal(String.format("%s.disabledCreatureSpawn.tooltip", Tags.MODID)));
