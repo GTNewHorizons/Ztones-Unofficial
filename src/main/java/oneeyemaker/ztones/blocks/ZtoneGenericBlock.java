@@ -75,14 +75,14 @@ public class ZtoneGenericBlock extends Block {
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
         if (this.type.isGlassLike()) {
-            Block block = world.getBlock(x, y, z);
-            if (this == block) {
-                int metadata = world.getBlockMetadata(x, y, z);
-                int neighborMetadata = world.getBlockMetadata(
+            Block neighborBlock = world.getBlock(x, y, z);
+            if (this == neighborBlock) {
+                int neighborMetadata = world.getBlockMetadata(x, y, z);
+                int metadata = world.getBlockMetadata(
                     x - Facing.offsetsXForSide[side],
                     y - Facing.offsetsYForSide[side],
                     z - Facing.offsetsZForSide[side]);
-                return metadata != neighborMetadata;
+                return neighborMetadata != metadata;
             }
         }
         return super.shouldSideBeRendered(world, x, y, z, side);
