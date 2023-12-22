@@ -25,4 +25,8 @@ public class CommonProxy {
     public World getClientWorld() {
         return null;
     }
+
+    public String getCyclingKeybinding() {
+        return "";
+    }
 }

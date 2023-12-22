@@ -44,6 +44,11 @@ public class ClientProxy extends CommonProxy {
         return Minecraft.getMinecraft().theWorld;
     }
 
+    @Override
+    public String getCyclingKeybinding() {
+        return Keyboard.getKeyName(cycleKey.getKeyCode());
+    }
+
     @SubscribeEvent
     public void processMouseEvent(MouseEvent event) {
         if (event.dwheel == 0 || !cycleKey.getIsKeyPressed()) {

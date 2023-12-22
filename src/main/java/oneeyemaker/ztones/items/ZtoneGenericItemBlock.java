@@ -15,6 +15,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.Tags;
+import oneeyemaker.ztones.Ztones;
 
 public class ZtoneGenericItemBlock extends ItemBlock {
 
@@ -47,6 +48,12 @@ public class ZtoneGenericItemBlock extends ItemBlock {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List<String> list, boolean flag) {
+        if (ModConfiguration.isVariantCyclingEnabled) {
+            list.add(
+                StatCollector.translateToLocalFormatted(
+                    String.format("%s.enabledVariantCycling.tooltip", Tags.MODID),
+                    Ztones.proxy.getCyclingKeybinding()));
+        }
         if (!ModConfiguration.isCreatureSpawnOnZtonesEnabled) {
             list.add(
                 EnumChatFormatting.ITALIC
