@@ -13,6 +13,7 @@ public class ModBlocks {
     public static FlatLampBlock flatLampBlock;
     public static FlatLampBlock flatTransparentLampBlock;
     public static FlatLampBlock flatDarkenedLampBlock;
+    public static BoosterBlock boosterBlock;
     private static final HashMap<ZtoneType, ZtoneGenericBlock> genericBlocks = new HashMap<>();
 
     public static ZtoneGenericBlock getBlock(ZtoneType type) {
@@ -30,6 +31,8 @@ public class ModBlocks {
         GameRegistry.registerBlock(flatTransparentLampBlock, "lampt");
         flatDarkenedLampBlock = new FlatLampBlock(true, true);
         GameRegistry.registerBlock(flatDarkenedLampBlock, "lampb");
+        boosterBlock = new BoosterBlock();
+        GameRegistry.registerBlock(boosterBlock, "booster");
 
         for (ZtoneType type : ZtoneType.values()) {
             if (type.isEnabled()) {
