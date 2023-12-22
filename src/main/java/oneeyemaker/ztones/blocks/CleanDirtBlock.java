@@ -3,6 +3,7 @@ package oneeyemaker.ztones.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -11,6 +12,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.Tags;
 import oneeyemaker.ztones.Ztones;
 
@@ -56,5 +58,10 @@ public class CleanDirtBlock extends Block {
     @Override
     public boolean isFertile(World world, int x, int y, int z) {
         return true;
+    }
+
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+        return ModConfiguration.enableCreatureSpawnOnZtones;
     }
 }

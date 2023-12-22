@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ZtoneType;
+import oneeyemaker.ztones.items.SimpleItemBlock;
 import oneeyemaker.ztones.items.ZtoneGenericItemBlock;
 
 public class ModBlocks {
@@ -22,9 +23,9 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         auroraBlock = new AuroraBlock();
-        GameRegistry.registerBlock(auroraBlock, "auroraBlock");
+        GameRegistry.registerBlock(auroraBlock, SimpleItemBlock.class, "auroraBlock");
         cleanDirtBlock = new CleanDirtBlock();
-        GameRegistry.registerBlock(cleanDirtBlock, "cleanDirt");
+        GameRegistry.registerBlock(cleanDirtBlock, SimpleItemBlock.class, "cleanDirt");
         flatLampBlock = new FlatLampBlock(false, false);
         GameRegistry.registerBlock(flatLampBlock, "lampf");
         flatTransparentLampBlock = new FlatLampBlock(true, false);

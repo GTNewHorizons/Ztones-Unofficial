@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
@@ -14,6 +15,7 @@ import net.minecraft.world.IBlockAccess;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.Tags;
 import oneeyemaker.ztones.ZtoneType;
 import oneeyemaker.ztones.Ztones;
@@ -106,6 +108,11 @@ public class ZtoneGenericBlock extends Block {
     @Override
     public int damageDropped(int metadata) {
         return metadata;
+    }
+
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+        return ModConfiguration.enableCreatureSpawnOnZtones;
     }
 
     public String getRegistryName() {
