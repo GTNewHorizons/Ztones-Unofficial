@@ -656,3 +656,6 @@ Ztones.zyth.14.name=Zyth 15
 Ztones.zyth.15.name=Zyth 16
 
 Ztones.disabledCreatureSpawn.tooltip=Mobs can't spawn on this block
+
+Ztones.keybindings=Ztones
+Ztones.keybinding.cycle=Cycle Ztone variants

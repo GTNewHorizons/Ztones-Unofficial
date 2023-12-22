@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class ModConfiguration {
 
+    public static boolean isVariantCyclingEnabled = true;
     public static boolean isCreatureSpawnOnZtonesEnabled = false;
 
     public static void synchronizeConfiguration(File configurationFile) {
@@ -15,9 +16,14 @@ public class ModConfiguration {
                 String.format("enable%s", type.name()),
                 "blocks",
                 true,
-                String.format("Should %s block be registered in game?", type.name()));
+                String.format("Should %s block be registered?", type.name()));
             type.setEnabled(isEnabled);
         }
+        isVariantCyclingEnabled = configuration.getBoolean(
+            "enableVariantCycling",
+            "general",
+            isVariantCyclingEnabled,
+            "Is Ztone variant scroll-cycling enabled?");
         isCreatureSpawnOnZtonesEnabled = configuration.getBoolean(
             "enableCreatureSpawnOnZtones",
             "general",
