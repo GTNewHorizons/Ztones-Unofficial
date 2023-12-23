@@ -26,6 +26,12 @@ public class CommonProxy {
         return null;
     }
 
+    public boolean isVariantCyclingEnabled() {
+        return ModConfiguration.isVariantCyclingEnabled;
+    }
+
+    public void setVariantCyclingEnabled(boolean isVariantCyclingEnabled) {}
+
     public String getCyclingKeybinding() {
         return "";
     }

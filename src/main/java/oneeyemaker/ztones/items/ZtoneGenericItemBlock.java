@@ -48,7 +48,7 @@ public class ZtoneGenericItemBlock extends ItemBlock {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List<String> list, boolean flag) {
-        if (ModConfiguration.isVariantCyclingEnabled) {
+        if (Ztones.proxy.isVariantCyclingEnabled()) {
             list.add(
                 StatCollector.translateToLocalFormatted(
                     String.format("%s.enabledVariantCycling.tooltip", Tags.MODID),
