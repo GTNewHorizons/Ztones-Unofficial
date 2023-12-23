@@ -7,6 +7,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.blocks.ModBlocks;
+import oneeyemaker.ztones.items.ModItems;
 import oneeyemaker.ztones.network.ModNetwork;
 
 public class CommonProxy {
@@ -14,9 +15,11 @@ public class CommonProxy {
     public void preInitialize(FMLPreInitializationEvent event) {
         ModConfiguration.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         ModBlocks.registerBlocks();
+        ModItems.registerItems();
     }
 
     public void initialize(FMLInitializationEvent event) {
+        ModItems.registerHandlers();
         ModNetwork.registerMessages();
     }
 

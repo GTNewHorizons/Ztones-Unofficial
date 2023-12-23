@@ -655,6 +655,9 @@ Ztones.zyth.13.name=Zyth 14
 Ztones.zyth.14.name=Zyth 15
 Ztones.zyth.15.name=Zyth 16
 
+Ztones.miniCoal.name=Mini Coal
+Ztones.miniCharcoal.name=Mini Charcoal
+
 Ztones.enabledVariantCycling.tooltip=Press %s and scroll to cycle between variants
 Ztones.disabledCreatureSpawn.tooltip=Mobs can't spawn on this block
 

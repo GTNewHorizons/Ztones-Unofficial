@@ -8,6 +8,8 @@ public class ModConfiguration {
 
     public static boolean isVariantCyclingEnabled = true;
     public static boolean isCreatureSpawnOnZtonesEnabled = false;
+    public static boolean isMiniCoalEnabled = true;
+    public static boolean isMiniCharcoalEnabled = true;
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -29,6 +31,9 @@ public class ModConfiguration {
             "general",
             isCreatureSpawnOnZtonesEnabled,
             "Can mobs spawn on decorative blocks?");
+        isMiniCoalEnabled = configuration.getBoolean("Mini Coal", "items", isMiniCoalEnabled, "Is mini coal enabled?");
+        isMiniCharcoalEnabled = configuration
+            .getBoolean(" Mini Charcoal", "items", isMiniCharcoalEnabled, "Is mini charcoal enabled?");
         if (configuration.hasChanged()) {
             configuration.save();
         }
