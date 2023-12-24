@@ -2,8 +2,12 @@ package oneeyemaker.ztones.blocks;
 
 import java.util.HashMap;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
@@ -24,6 +28,15 @@ public class ModBlocks {
 
     public static ZtoneGenericBlock getBlock(ZtoneType type) {
         return genericBlocks.get(type);
+    }
+
+    public static ItemStack getBlock(ZtoneType type, int amount) {
+        ZtoneGenericBlock genericBlock = genericBlocks.get(type);
+        return genericBlock != null ? new ItemStack(genericBlock, amount) : null;
+    }
+
+    public static Block getBlock(ZtoneType type, Block replacement) {
+        return type.isEnabled() ? genericBlocks.get(type) : replacement;
     }
 
     public static void registerBlocks() {
@@ -51,6 +64,158 @@ public class ModBlocks {
     }
 
     public static void registerRecipes() {
+        ItemStack stoneTile = ZtoneType.Tile.isEnabled()
+            ? new ItemStack(getBlock(ZtoneType.Tile), 1, OreDictionary.WILDCARD_VALUE)
+            : new ItemStack(Blocks.stone_slab, 1, 5);
+        if (ZtoneType.Agon.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Agon, 8), "ttt", "tat", "ttt", 't', stoneTile.copy(), 'a', aurora);
+        }
+        if (ZtoneType.Azur.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Azur, 8), "ttt", "tdt", "ttt", 't', stoneTile.copy(), 'd', "gemLapis");
+            addRecipe(getBlock(ZtoneType.Azur, 8), "ttt", "tdt", "ttt", 't', stoneTile.copy(), 'd', "gemLazurite");
+        }
+        if (ZtoneType.Bitt.isEnabled()) {
+            addRecipe(
+                getBlock(ZtoneType.Bitt, 8),
+                "ttt",
+                "twt",
+                "ttt",
+                't',
+                stoneTile.copy(),
+                'w',
+                new ItemStack(Blocks.wool, 1, OreDictionary.WILDCARD_VALUE));
+        }
+        if (ZtoneType.Cray.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Cray, 16), "ccc", "cac", "ccc", 'c', Blocks.hardened_clay, 'a', aurora);
+        }
+        if (ZtoneType.Fort.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 9);
+            addRecipe(getBlock(ZtoneType.Fort, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Glaxx.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Glaxx, 8), "ggg", "gag", "ggg", 'g', Blocks.glass, 'a', aurora);
+        }
+        if (ZtoneType.Iszm.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 8);
+            addRecipe(getBlock(ZtoneType.Iszm, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Jelt.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Jelt, 8), "ttt", "tgt", "ttt", 't', stoneTile.copy(), 'g', "ingotGold");
+        }
+        if (ZtoneType.Korp.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Korp, 8), "ttt", "tot", "ttt", 't', stoneTile.copy(), 'o', Blocks.obsidian);
+        }
+        if (ZtoneType.Kryp.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Kryp, 8), "ttt", "tst", "ttt", 't', stoneTile.copy(), 's', Blocks.soul_sand);
+        }
+        if (ZtoneType.Lair.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Lair, 8), "ttt", "tnt", "ttt", 't', stoneTile.copy(), 'n', Blocks.netherrack);
+        }
+        if (ZtoneType.Lave.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Lave, 8), "ttt", "tit", "ttt", 't', stoneTile.copy(), 'i', Blocks.ice);
+        }
+        if (ZtoneType.Mint.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Mint, 8), "ttt", "tst", "ttt", 't', stoneTile.copy(), 's', Items.slime_ball);
+        }
+        if (ZtoneType.Myst.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Myst, 8), "mmm", "mam", "mmm", 'm', Blocks.brown_mushroom_block, 'a', aurora);
+        }
+        if (ZtoneType.Reds.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Reds, 8), "ttt", "trt", "ttt", 't', stoneTile.copy(), 'r', "dustRedstone");
+        }
+        if (ZtoneType.Reed.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Reed, 8), "ttt", "trt", "ttt", 't', stoneTile.copy(), 'r', Items.reeds);
+        }
+        if (ZtoneType.Roen.isEnabled()) {
+            addRecipe(
+                getBlock(ZtoneType.Roen, 8),
+                "ttt",
+                "tst",
+                "ttt",
+                't',
+                stoneTile.copy(),
+                's',
+                new ItemStack(Blocks.sandstone, 1, OreDictionary.WILDCARD_VALUE));
+        }
+        if (ZtoneType.Sols.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Sols, 8), "ttt", "tbt", "ttt", 't', stoneTile.copy(), 'b', Items.blaze_powder);
+        }
+        if (ZtoneType.Sync.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Sync, 8), "ttt", "tet", "ttt", 't', stoneTile.copy(), 'e', "gemEmerald");
+        }
+        if (ZtoneType.Tank.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Tank, 8), "ttt", "tit", "ttt", 't', stoneTile.copy(), 'i', "ingotIron");
+        }
+        if (ZtoneType.Test.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Test, 8), "ttt", "tst", "ttt", 't', stoneTile.copy(), 's', "stickWood");
+        }
+        if (ZtoneType.Tile.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Tile, 8), "sss", "sSs", "sss", 's', Blocks.stone_slab, 'S', Blocks.stone);
+        }
+        if (ZtoneType.Vect.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Vect, 8), "ttt", "tgt", "ttt", 't', stoneTile.copy(), 'g', Items.ghast_tear);
+        }
+        if (ZtoneType.Vena.isEnabled()) {
+            addRecipe(getBlock(ZtoneType.Vena, 8), "ttt", "tet", "ttt", 't', stoneTile.copy(), 'e', Items.ender_pearl);
+        }
+        if (ZtoneType.Zane.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 12);
+            addRecipe(getBlock(ZtoneType.Zane, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zech.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 4);
+            addRecipe(getBlock(ZtoneType.Zech, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zest.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 11);
+            addRecipe(getBlock(ZtoneType.Zest, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zeta.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 13);
+            addRecipe(getBlock(ZtoneType.Zeta, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zion.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 7);
+            addRecipe(getBlock(ZtoneType.Zion, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zkul.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 10);
+            addRecipe(getBlock(ZtoneType.Zkul, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zoea.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 14);
+            addRecipe(getBlock(ZtoneType.Zoea, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zome.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 6);
+            addRecipe(getBlock(ZtoneType.Zome, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zone.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 3);
+            addRecipe(getBlock(ZtoneType.Zone, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Zorg.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 5);
+            addRecipe(getBlock(ZtoneType.Zorg, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
+        if (ZtoneType.Ztyl.isEnabled()) {
+            addRecipe(
+                getBlock(ZtoneType.Ztyl, 32),
+                "ttt",
+                "cti",
+                "ttt",
+                't',
+                stoneTile.copy(),
+                'c',
+                "blockCoal",
+                'i',
+                "blockIron");
+            addRecipe(getBlock(ZtoneType.Ztyl, 8), "ttt", "tst", "ttt", 't', stoneTile.copy(), 's', "ingotSteel");
+        }
+        if (ZtoneType.Zyth.isEnabled()) {
+            ItemStack ingredient = new ItemStack(getBlock(ZtoneType.Ztyl, Blocks.stained_hardened_clay), 1, 15);
+            addRecipe(getBlock(ZtoneType.Zyth, 8), "zzz", "zaz", "zzz", 'z', ingredient, 'a', aurora);
+        }
         if (ModConfiguration.isOfanixEnabled && ModConfiguration.isVariantCraftingEnabled) {
             for (ZtoneType type : ZtoneType.values()) {
                 registerOfanixRecipes(type);
@@ -207,5 +372,9 @@ public class ModBlocks {
             new ItemStack(genericBlock, 1, OreDictionary.WILDCARD_VALUE),
             'o',
             ModItems.ofanix);
+    }
+
+    private static void addRecipe(ItemStack output, Object... ingredients) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(output, ingredients));
     }
 }
