@@ -134,16 +134,21 @@ public class TerrainEaterItem extends ItemTool {
         x += direction.offsetX;
         y += direction.offsetY;
         z += direction.offsetZ;
-        if (!entityPlayer.canPlayerEdit(x, y, z, side, itemStack)) {
-            return false;
-        }
-        if (world.isAirBlock(x, y, z) && Blocks.torch.canPlaceBlockAt(world, x, y, z)) {
-            world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "random.burp", 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
-            if (!world.isRemote) {
-                world.setBlock(x, y, z, Blocks.torch);
-                itemStack.damageItem(1, entityPlayer);
+        if (entityPlayer.canPlayerEdit(x, y, z, side, itemStack)) {
+            if (world.isAirBlock(x, y, z) && Blocks.torch.canPlaceBlockAt(world, x, y, z)) {
+                world.playSoundEffect(
+                    x + 0.5,
+                    y + 0.5,
+                    z + 0.5,
+                    "random.burp",
+                    1.0f,
+                    world.rand.nextFloat() * 0.4f + 0.8f);
+                if (!world.isRemote) {
+                    world.setBlock(x, y, z, Blocks.torch);
+                    itemStack.damageItem(1, entityPlayer);
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }

@@ -2,10 +2,7 @@ package oneeyemaker.ztones.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
-import oneeyemaker.ztones.items.tools.DiamondZaneItem;
-import oneeyemaker.ztones.items.tools.SplatAxeItem;
-import oneeyemaker.ztones.items.tools.TerrainEaterItem;
-import oneeyemaker.ztones.items.tools.TotemToolItem;
+import oneeyemaker.ztones.items.tools.*;
 
 public class ModItems {
 
@@ -16,6 +13,7 @@ public class ModItems {
     public static SplatAxeItem splatAxe;
     public static TerrainEaterItem terrainEater;
     public static TotemToolItem totemTool;
+    public static OfanixItem ofanix;
 
     public static void registerItems() {
         if (ModConfiguration.isMiniCoalEnabled) {
@@ -45,6 +43,10 @@ public class ModItems {
         if (ModConfiguration.isTotemToolEnabled) {
             totemTool = new TotemToolItem();
             GameRegistry.registerItem(totemTool, "totemTool");
+        }
+        if (ModConfiguration.isOfanixEnabled) {
+            ofanix = new OfanixItem();
+            GameRegistry.registerItem(ofanix, "ofanix");
         }
     }
 

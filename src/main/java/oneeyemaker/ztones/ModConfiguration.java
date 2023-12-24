@@ -15,6 +15,7 @@ public class ModConfiguration {
     public static boolean isSplatAxeEnabled = true;
     public static boolean isTerrainEaterEnabled = true;
     public static boolean isTotemToolEnabled = true;
+    public static boolean isOfanixEnabled = true;
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -48,6 +49,7 @@ public class ModConfiguration {
             .getBoolean("Terrain Eater", "items", isTerrainEaterEnabled, "Is Terrain Eater enabled?");
         isTotemToolEnabled = configuration
             .getBoolean("Totem Tool", "items", isTotemToolEnabled, "Is Totem tool enabled?");
+        isOfanixEnabled = configuration.getBoolean("Ofanix", "items", isOfanixEnabled, "Is Ofanix tool enabled?");
         if (configuration.hasChanged()) {
             configuration.save();
         }

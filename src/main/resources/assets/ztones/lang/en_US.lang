@@ -662,11 +662,15 @@ Ztones.diamondZane.name=Diamond Zane
 Ztones.splatAxe.name=Splat Axe
 Ztones.terrainEater.name=Terrain Eater
 Ztones.totemTool.name=Totem Tool
+Ztones.ofanix.name=Ofanix
 
 Ztones.enabledVariantCycling.tooltip=Press %s and scroll to cycle between variants
 Ztones.disabledCreatureSpawn.tooltip=Mobs can't spawn on this block
 Ztones.hungerPill.tooltip=Depletes hunger points
 Ztones.terrainEater.tooltip=Right click to place torch
+Ztones.ofanix.show.tooltip=<Hold Shift for more information>
+Ztones.ofanix.tooltip=Right-click to place cobblestone
+Ztones.ofanix.sneak.tooltip=Sneak right-click on air to open Crafting table
 
 Ztones.keybindings=Ztones
 Ztones.keybinding.cycle=Cycle Ztone variants
