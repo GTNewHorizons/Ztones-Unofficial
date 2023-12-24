@@ -1,5 +1,6 @@
 package oneeyemaker.ztones.gui;
 
+import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -20,7 +21,7 @@ public class ModGui implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z) {
         if (id == OFANIX_GUI_ID) {
-            return new GuiOfanix(entityPlayer.inventory, world, x, y, z);
+            return new GuiCrafting(entityPlayer.inventory, world, x, y, z);
         }
         return null;
     }
