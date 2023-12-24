@@ -2,7 +2,11 @@ package oneeyemaker.ztones.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
-import oneeyemaker.ztones.items.tools.*;
+import oneeyemaker.ztones.items.tools.DiamondZaneItem;
+import oneeyemaker.ztones.items.tools.OfanixItem;
+import oneeyemaker.ztones.items.tools.SplatAxeItem;
+import oneeyemaker.ztones.items.tools.TerrainEaterItem;
+import oneeyemaker.ztones.items.tools.TotemToolItem;
 
 public class ModItems {
 
