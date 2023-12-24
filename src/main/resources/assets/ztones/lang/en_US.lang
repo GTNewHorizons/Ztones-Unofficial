@@ -658,6 +658,7 @@ Ztones.zyth.15.name=Zyth 16
 Ztones.miniCoal.name=Mini Coal
 Ztones.miniCharcoal.name=Mini Charcoal
 Ztones.hungerPill.name=MSG Pill
+Ztones.diamondZane.name=Diamond Zane
 
 Ztones.enabledVariantCycling.tooltip=Press %s and scroll to cycle between variants
 Ztones.disabledCreatureSpawn.tooltip=Mobs can't spawn on this block

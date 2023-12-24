@@ -1,16 +1,15 @@
 package oneeyemaker.ztones.items;
 
-import net.minecraft.item.ItemStack;
-
-import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
+import oneeyemaker.ztones.items.tools.DiamondZaneItem;
 
 public class ModItems {
 
     public static MiniFuelItem miniCoal;
     public static MiniFuelItem miniCharcoal;
     public static HungerPillItem hungerPill;
+    public static DiamondZaneItem diamondZane;
 
     public static void registerItems() {
         if (ModConfiguration.isMiniCoalEnabled) {
@@ -25,19 +24,19 @@ public class ModItems {
             hungerPill = new HungerPillItem();
             GameRegistry.registerItem(hungerPill, "hunger");
         }
+        if (ModConfiguration.isDiamondZaneEnabled) {
+            diamondZane = new DiamondZaneItem();
+            GameRegistry.registerItem(diamondZane, "diamondZane");
+        }
     }
 
     public static void registerHandlers() {
         if (ModConfiguration.isMiniCoalEnabled || ModConfiguration.isMiniCharcoalEnabled) {
-            GameRegistry.registerFuelHandler(new IFuelHandler() {
-
-                @Override
-                public int getBurnTime(ItemStack itemStack) {
-                    if (itemStack != null && itemStack.getItem() instanceof MiniFuelItem) {
-                        return 200;
-                    }
-                    return 0;
+            GameRegistry.registerFuelHandler(itemStack -> {
+                if (itemStack != null && itemStack.getItem() instanceof MiniFuelItem) {
+                    return 200;
                 }
+                return 0;
             });
         }
     }
