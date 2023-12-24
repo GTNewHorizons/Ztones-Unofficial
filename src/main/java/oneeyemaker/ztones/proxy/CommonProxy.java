@@ -23,6 +23,7 @@ public class CommonProxy {
 
     public void initialize(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(Tags.MODID, new ModGui());
+        ModBlocks.registerRecipes();
         ModItems.registerHandlers();
         ModNetwork.registerMessages();
     }

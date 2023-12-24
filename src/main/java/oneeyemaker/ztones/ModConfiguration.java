@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 public class ModConfiguration {
 
     public static boolean isVariantCyclingEnabled = true;
+    public static boolean isVariantCraftingEnabled = true;
     public static boolean isCreatureSpawnOnZtonesEnabled = false;
     public static boolean isMiniCoalEnabled = true;
     public static boolean isMiniCharcoalEnabled = true;
@@ -31,7 +32,12 @@ public class ModConfiguration {
             "enableVariantCycling",
             "general",
             isVariantCyclingEnabled,
-            "Is Ztone variant scroll-cycling enabled?");
+            "Is Ztone variants scroll-cycling enabled?");
+        isVariantCraftingEnabled = configuration.getBoolean(
+            "enableVariantCrafting",
+            "general",
+            isVariantCraftingEnabled,
+            "Can Ztone variants be crafted using Ofanix?");
         isCreatureSpawnOnZtonesEnabled = configuration.getBoolean(
             "enableCreatureSpawnOnZtones",
             "general",
