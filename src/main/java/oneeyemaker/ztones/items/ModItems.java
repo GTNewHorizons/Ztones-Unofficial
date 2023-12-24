@@ -10,6 +10,7 @@ public class ModItems {
 
     public static MiniFuelItem miniCoal;
     public static MiniFuelItem miniCharcoal;
+    public static HungerPillItem hungerPill;
 
     public static void registerItems() {
         if (ModConfiguration.isMiniCoalEnabled) {
@@ -19,6 +20,10 @@ public class ModItems {
         if (ModConfiguration.isMiniCharcoalEnabled) {
             miniCharcoal = new MiniFuelItem("Charcoal");
             GameRegistry.registerItem(miniCharcoal, "minicharcoal");
+        }
+        if (ModConfiguration.isHungerPillEnabled) {
+            hungerPill = new HungerPillItem();
+            GameRegistry.registerItem(hungerPill, "hunger");
         }
     }
 

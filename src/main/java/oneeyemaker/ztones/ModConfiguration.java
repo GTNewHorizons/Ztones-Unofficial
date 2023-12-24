@@ -10,6 +10,7 @@ public class ModConfiguration {
     public static boolean isCreatureSpawnOnZtonesEnabled = false;
     public static boolean isMiniCoalEnabled = true;
     public static boolean isMiniCharcoalEnabled = true;
+    public static boolean isHungerPillEnabled = true;
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -34,6 +35,8 @@ public class ModConfiguration {
         isMiniCoalEnabled = configuration.getBoolean("Mini Coal", "items", isMiniCoalEnabled, "Is mini coal enabled?");
         isMiniCharcoalEnabled = configuration
             .getBoolean(" Mini Charcoal", "items", isMiniCharcoalEnabled, "Is mini charcoal enabled?");
+        isHungerPillEnabled = configuration
+            .getBoolean("MSG Pill", "items", isHungerPillEnabled, "Is hunger pill enabled?");
         if (configuration.hasChanged()) {
             configuration.save();
         }
