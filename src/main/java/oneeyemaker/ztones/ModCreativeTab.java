@@ -2,7 +2,6 @@ package oneeyemaker.ztones;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -24,18 +23,15 @@ public class ModCreativeTab extends CreativeTabs {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getTabIconItem() {
-        Block block = ZtoneType.Tile.isEnabled() ? ModBlocks.getBlock(ZtoneType.Tile) : Blocks.double_stone_slab;
+        Block block = ModBlocks.getBlock(ZtoneType.Tile);
         return Item.getItemFromBlock(block);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public ItemStack getIconItemStack() {
-        if (ZtoneType.Tile.isEnabled()) {
-            updateMetadata();
-            return new ItemStack(ModBlocks.getBlock(ZtoneType.Tile), 1, currentMetadata);
-        }
-        return new ItemStack(Blocks.double_stone_slab);
+        updateMetadata();
+        return new ItemStack(ModBlocks.getBlock(ZtoneType.Tile), 1, currentMetadata);
     }
 
     @Override

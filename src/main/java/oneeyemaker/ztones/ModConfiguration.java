@@ -21,6 +21,10 @@ public class ModConfiguration {
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
         for (ZtoneType type : ZtoneType.values()) {
+            if (type == ZtoneType.Tile) {
+                type.setEnabled(true);
+                continue;
+            }
             boolean isEnabled = configuration.getBoolean(
                 String.format("enable%s", type.name()),
                 "blocks",
