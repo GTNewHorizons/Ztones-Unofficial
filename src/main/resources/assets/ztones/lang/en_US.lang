@@ -659,11 +659,13 @@ Ztones.miniCoal.name=Mini Coal
 Ztones.miniCharcoal.name=Mini Charcoal
 Ztones.hungerPill.name=MSG Pill
 Ztones.diamondZane.name=Diamond Zane
+Ztones.terrainEater.name=Terrain Eater
 Ztones.totemTool.name=Totem Tool
 
 Ztones.enabledVariantCycling.tooltip=Press %s and scroll to cycle between variants
 Ztones.disabledCreatureSpawn.tooltip=Mobs can't spawn on this block
 Ztones.hungerPill.tooltip=Depletes hunger points
+Ztones.terrainEater.tooltip=Right click to place torch
 
 Ztones.keybindings=Ztones
 Ztones.keybinding.cycle=Cycle Ztone variants
