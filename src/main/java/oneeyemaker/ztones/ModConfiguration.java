@@ -12,6 +12,7 @@ public class ModConfiguration {
     public static boolean isMiniCharcoalEnabled = true;
     public static boolean isHungerPillEnabled = true;
     public static boolean isDiamondZaneEnabled = true;
+    public static boolean isSplatAxeEnabled = true;
     public static boolean isTerrainEaterEnabled = true;
     public static boolean isTotemToolEnabled = true;
 
@@ -42,6 +43,7 @@ public class ModConfiguration {
             .getBoolean("MSG Pill", "items", isHungerPillEnabled, "Is hunger pill enabled?");
         isDiamondZaneEnabled = configuration
             .getBoolean("Diamond Zane", "items", isDiamondZaneEnabled, "Is Diamond Zane enabled?");
+        isSplatAxeEnabled = configuration.getBoolean("Splat Axe", "items", isSplatAxeEnabled, "Is Splat Axe enabled?");
         isTerrainEaterEnabled = configuration
             .getBoolean("Terrain Eater", "items", isTerrainEaterEnabled, "Is Terrain Eater enabled?");
         isTotemToolEnabled = configuration

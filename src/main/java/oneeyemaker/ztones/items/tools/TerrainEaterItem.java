@@ -26,7 +26,8 @@ import oneeyemaker.ztones.Ztones;
 
 public class TerrainEaterItem extends ItemTool {
 
-    public static ToolMaterial WORLD_SPIRIT = EnumHelper.addToolMaterial("worldSpirit", 3, 15000, 25.0f, 2.0f, 32);
+    public static final ToolMaterial WORLD_SPIRIT = EnumHelper
+        .addToolMaterial("worldSpirit", 3, 15000, 25.0f, 2.0f, 32);
     private static final Set<Block> effectiveAgainstBlocks = Sets.newHashSet(
         Blocks.wooden_door,
         Blocks.trapdoor,
