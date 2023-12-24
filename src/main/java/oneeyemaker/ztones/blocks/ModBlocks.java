@@ -9,12 +9,12 @@ import oneeyemaker.ztones.items.ZtoneGenericItemBlock;
 
 public class ModBlocks {
 
-    public static AuroraBlock auroraBlock;
-    public static CleanDirtBlock cleanDirtBlock;
-    public static FlatLampBlock flatLampBlock;
-    public static FlatLampBlock flatTransparentLampBlock;
-    public static FlatLampBlock flatDarkenedLampBlock;
-    public static BoosterBlock boosterBlock;
+    public static AuroraBlock aurora;
+    public static CleanDirtBlock cleanDirt;
+    public static FlatLampBlock flatLamp;
+    public static FlatLampBlock flatTransparentLamp;
+    public static FlatLampBlock flatDarkenedLamp;
+    public static BoosterBlock booster;
     private static final HashMap<ZtoneType, ZtoneGenericBlock> genericBlocks = new HashMap<>();
 
     public static ZtoneGenericBlock getBlock(ZtoneType type) {
@@ -22,18 +22,18 @@ public class ModBlocks {
     }
 
     public static void registerBlocks() {
-        auroraBlock = new AuroraBlock();
-        GameRegistry.registerBlock(auroraBlock, SimpleItemBlock.class, "auroraBlock");
-        cleanDirtBlock = new CleanDirtBlock();
-        GameRegistry.registerBlock(cleanDirtBlock, SimpleItemBlock.class, "cleanDirt");
-        flatLampBlock = new FlatLampBlock(false, false);
-        GameRegistry.registerBlock(flatLampBlock, "lampf");
-        flatTransparentLampBlock = new FlatLampBlock(true, false);
-        GameRegistry.registerBlock(flatTransparentLampBlock, "lampt");
-        flatDarkenedLampBlock = new FlatLampBlock(true, true);
-        GameRegistry.registerBlock(flatDarkenedLampBlock, "lampb");
-        boosterBlock = new BoosterBlock();
-        GameRegistry.registerBlock(boosterBlock, "booster");
+        aurora = new AuroraBlock();
+        GameRegistry.registerBlock(aurora, SimpleItemBlock.class, "auroraBlock");
+        cleanDirt = new CleanDirtBlock();
+        GameRegistry.registerBlock(cleanDirt, SimpleItemBlock.class, "cleanDirt");
+        flatLamp = new FlatLampBlock(false, false);
+        GameRegistry.registerBlock(flatLamp, "lampf");
+        flatTransparentLamp = new FlatLampBlock(true, false);
+        GameRegistry.registerBlock(flatTransparentLamp, "lampt");
+        flatDarkenedLamp = new FlatLampBlock(true, true);
+        GameRegistry.registerBlock(flatDarkenedLamp, "lampb");
+        booster = new BoosterBlock();
+        GameRegistry.registerBlock(booster, "booster");
 
         for (ZtoneType type : ZtoneType.values()) {
             if (type.isEnabled()) {
