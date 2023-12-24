@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraftforge.common.util.EnumHelper;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
 import cpw.mods.fml.relauncher.Side;
@@ -103,6 +104,6 @@ public class DiamondZaneItem extends ItemTool {
 
     @Override
     public Set<String> getToolClasses(ItemStack itemStack) {
-        return Sets.newHashSet("pickaxe", "shovel", "axe");
+        return ImmutableSet.of("pickaxe", "shovel", "axe");
     }
 }

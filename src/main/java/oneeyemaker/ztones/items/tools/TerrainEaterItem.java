@@ -16,6 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
 import cpw.mods.fml.relauncher.Side;
@@ -119,7 +120,7 @@ public class TerrainEaterItem extends ItemTool {
 
     @Override
     public Set<String> getToolClasses(ItemStack itemStack) {
-        return Sets.newHashSet("pickaxe", "shovel", "axe", "shear");
+        return ImmutableSet.of("pickaxe", "shovel", "axe", "shear");
     }
 
     @Override
