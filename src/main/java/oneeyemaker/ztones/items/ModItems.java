@@ -3,6 +3,7 @@ package oneeyemaker.ztones.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.items.tools.DiamondZaneItem;
+import oneeyemaker.ztones.items.tools.TotemToolItem;
 
 public class ModItems {
 
@@ -10,6 +11,7 @@ public class ModItems {
     public static MiniFuelItem miniCharcoal;
     public static HungerPillItem hungerPill;
     public static DiamondZaneItem diamondZane;
+    public static TotemToolItem totemTool;
 
     public static void registerItems() {
         if (ModConfiguration.isMiniCoalEnabled) {
@@ -27,6 +29,10 @@ public class ModItems {
         if (ModConfiguration.isDiamondZaneEnabled) {
             diamondZane = new DiamondZaneItem();
             GameRegistry.registerItem(diamondZane, "diamondZane");
+        }
+        if (ModConfiguration.isTotemToolEnabled) {
+            totemTool = new TotemToolItem();
+            GameRegistry.registerItem(totemTool, "totemTool");
         }
     }
 

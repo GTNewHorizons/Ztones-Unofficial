@@ -12,6 +12,7 @@ public class ModConfiguration {
     public static boolean isMiniCharcoalEnabled = true;
     public static boolean isHungerPillEnabled = true;
     public static boolean isDiamondZaneEnabled = true;
+    public static boolean isTotemToolEnabled = true;
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -40,6 +41,8 @@ public class ModConfiguration {
             .getBoolean("MSG Pill", "items", isHungerPillEnabled, "Is hunger pill enabled?");
         isDiamondZaneEnabled = configuration
             .getBoolean("Diamond Zane", "items", isDiamondZaneEnabled, "Is Diamond Zane enabled?");
+        isTotemToolEnabled = configuration
+            .getBoolean("Totem Tool", "items", isTotemToolEnabled, "Is Totem tool enabled?");
         if (configuration.hasChanged()) {
             configuration.save();
         }
