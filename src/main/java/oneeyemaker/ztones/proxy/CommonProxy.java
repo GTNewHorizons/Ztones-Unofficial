@@ -11,15 +11,18 @@ import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.Tags;
 import oneeyemaker.ztones.blocks.ModBlocks;
 import oneeyemaker.ztones.gui.ModGui;
+import oneeyemaker.ztones.integration.ChiselIntegration;
 import oneeyemaker.ztones.items.ModItems;
 import oneeyemaker.ztones.network.ModNetwork;
 import oneeyemaker.ztones.world.ChestLootGenerator;
 
 public class CommonProxy {
 
+    public boolean isChiselLoaded = false;
     public boolean isDreamCraftLoaded = false;
 
     public void preInitialize(FMLPreInitializationEvent event) {
+        isChiselLoaded = Loader.isModLoaded("chisel");
         isDreamCraftLoaded = Loader.isModLoaded("dreamcraft");
 
         ModConfiguration.synchronizeConfiguration(event.getSuggestedConfigurationFile());
@@ -36,7 +39,11 @@ public class CommonProxy {
         ModNetwork.registerMessages();
     }
 
-    public void postInitialize(FMLPostInitializationEvent event) {}
+    public void postInitialize(FMLPostInitializationEvent event) {
+        if (isChiselLoaded) {
+            ChiselIntegration.registerCarvingRecipes();
+        }
+    }
 
     public World getClientWorld() {
         return null;

@@ -16,7 +16,12 @@ import cpw.mods.fml.common.gameevent.PlayerEvent;
 import oneeyemaker.ztones.network.ModNetwork;
 import oneeyemaker.ztones.proxy.CommonProxy;
 
-@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.7.10]")
+@Mod(
+    modid = Tags.MODID,
+    version = Tags.VERSION,
+    name = Tags.MODNAME,
+    acceptedMinecraftVersions = "[1.7.10]",
+    dependencies = "after:chisel")
 public class Ztones {
 
     public static final Logger LOG = LogManager.getLogger(Tags.MODID);

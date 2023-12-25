@@ -8,6 +8,8 @@ public class ModConfiguration {
 
     public static boolean isVariantCyclingEnabled = true;
     public static boolean isVariantCraftingEnabled = true;
+    public static boolean isChiselIntegrationEnabled = true;
+    public static int chiselCarvingMode = 1;
     public static boolean isCreatureSpawnOnZtonesEnabled = false;
     public static boolean isMiniCoalEnabled = true;
     public static boolean isMiniCharcoalEnabled = true;
@@ -43,6 +45,15 @@ public class ModConfiguration {
             "general",
             isVariantCraftingEnabled,
             "Can Ztone variants be crafted using Ofanix?");
+        isChiselIntegrationEnabled = configuration.getBoolean(
+            "enableChiselIntegration",
+            "general",
+            isChiselIntegrationEnabled,
+            "Should Chisel recipes for carving of Ztone variants be registered?");
+        chiselCarvingMode = configuration.getInt("chiselCarvingMode", "general", chiselCarvingMode, 0, 1, """
+            There are 2 modes supported:
+            0 - Allow chiseling of the Ztones Tile into each of the different types Ztones adds.
+            1 - Allow chiseling between all the variants within their type.""");
         isCreatureSpawnOnZtonesEnabled = configuration.getBoolean(
             "enableCreatureSpawnOnZtones",
             "general",
@@ -50,7 +61,7 @@ public class ModConfiguration {
             "Can mobs spawn on decorative blocks?");
         isMiniCoalEnabled = configuration.getBoolean("Mini Coal", "items", isMiniCoalEnabled, "Is mini coal enabled?");
         isMiniCharcoalEnabled = configuration
-            .getBoolean(" Mini Charcoal", "items", isMiniCharcoalEnabled, "Is mini charcoal enabled?");
+            .getBoolean("Mini Charcoal", "items", isMiniCharcoalEnabled, "Is mini charcoal enabled?");
         isHungerPillEnabled = configuration
             .getBoolean("MSG Pill", "items", isHungerPillEnabled, "Is hunger pill enabled?");
         isDiamondZaneEnabled = configuration
