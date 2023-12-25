@@ -64,7 +64,7 @@ public class ModItems {
         if (ModConfiguration.isMiniCoalEnabled) {
             if (Ztones.proxy.isDreamCraftLoaded) {
                 addRecipe(
-                    new ItemStack(miniCoal, 9),
+                    new ItemStack(miniCoal, 7),
                     "T  ",
                     "C  ",
                     "   ",
@@ -80,7 +80,7 @@ public class ModItems {
         if (ModConfiguration.isMiniCharcoalEnabled) {
             if (Ztones.proxy.isDreamCraftLoaded) {
                 addRecipe(
-                    new ItemStack(miniCharcoal, 9),
+                    new ItemStack(miniCharcoal, 7),
                     "T  ",
                     "C  ",
                     "   ",
