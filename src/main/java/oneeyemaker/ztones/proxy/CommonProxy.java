@@ -2,6 +2,7 @@ package oneeyemaker.ztones.proxy;
 
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -15,7 +16,11 @@ import oneeyemaker.ztones.network.ModNetwork;
 
 public class CommonProxy {
 
+    public boolean isDreamCraftLoaded = false;
+
     public void preInitialize(FMLPreInitializationEvent event) {
+        isDreamCraftLoaded = Loader.isModLoaded("dreamcraft");
+
         ModConfiguration.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         ModBlocks.registerBlocks();
         ModItems.registerItems();
@@ -24,6 +29,7 @@ public class CommonProxy {
     public void initialize(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(Tags.MODID, new ModGui());
         ModBlocks.registerRecipes();
+        ModItems.registerRecipes();
         ModItems.registerHandlers();
         ModNetwork.registerMessages();
     }

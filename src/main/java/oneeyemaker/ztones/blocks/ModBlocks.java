@@ -9,10 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.ZtoneType;
+import oneeyemaker.ztones.Ztones;
 import oneeyemaker.ztones.items.ModItems;
 import oneeyemaker.ztones.items.SimpleItemBlock;
 import oneeyemaker.ztones.items.ZtoneGenericItemBlock;
@@ -65,7 +65,7 @@ public class ModBlocks {
     }
 
     public static void registerRecipes() {
-        if (Loader.isModLoaded("dreamcraft")) {
+        if (Ztones.proxy.isDreamCraftLoaded) {
             GameRegistry.addRecipe(
                 new ItemStack(aurora, 8),
                 "ggg",
@@ -95,9 +95,9 @@ public class ModBlocks {
                 "dws",
                 "sss",
                 'd',
-                Blocks.dirt,
+                new ItemStack(Blocks.dirt, 1, OreDictionary.WILDCARD_VALUE),
                 's',
-                Blocks.sand,
+                new ItemStack(Blocks.sand, 1, OreDictionary.WILDCARD_VALUE),
                 'w',
                 Items.wheat_seeds);
             addRecipe(new ItemStack(booster, 9), "rr ", 'r', "blockRedstone");
