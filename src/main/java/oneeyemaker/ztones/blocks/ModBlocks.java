@@ -75,8 +75,15 @@ public class ModBlocks {
                 Blocks.glass,
                 'd',
                 new ItemStack(Items.dye, 1, OreDictionary.WILDCARD_VALUE));
-            GameRegistry
-                .addRecipe(getBlock(ZtoneType.Tile, 8), "sss", "sSs", "sss", 's', Blocks.stone_slab, 'S', Blocks.stone);
+            GameRegistry.addRecipe(
+                getBlock(ZtoneType.Tile, 8),
+                "sss",
+                "sSs",
+                "sss",
+                's',
+                new ItemStack(Blocks.stone_slab),
+                'S',
+                new ItemStack(Blocks.stone));
         } else {
             GameRegistry.addRecipe(
                 new ItemStack(aurora, 8),
@@ -87,8 +94,15 @@ public class ModBlocks {
                 Blocks.glass,
                 'd',
                 new ItemStack(Items.dye, 1, OreDictionary.WILDCARD_VALUE));
-            GameRegistry
-                .addRecipe(getBlock(ZtoneType.Tile, 8), "ss ", "sSs", " ss", 's', Blocks.stone_slab, 'S', Blocks.stone);
+            GameRegistry.addRecipe(
+                getBlock(ZtoneType.Tile, 8),
+                "ss ",
+                "sSs",
+                " ss",
+                's',
+                new ItemStack(Blocks.stone_slab),
+                'S',
+                new ItemStack(Blocks.stone));
             GameRegistry.addRecipe(
                 new ItemStack(cleanDirt, 8),
                 "ddd",
