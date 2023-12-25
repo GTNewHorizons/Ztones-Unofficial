@@ -17,6 +17,7 @@ public class ModConfiguration {
     public static boolean isTerrainEaterEnabled = true;
     public static boolean isTotemToolEnabled = true;
     public static boolean isOfanixEnabled = true;
+    public static boolean isChestLootGenerationEnabled = true;
 
     public static void synchronizeConfiguration(File configurationFile) {
         Configuration configuration = new Configuration(configurationFile);
@@ -60,6 +61,11 @@ public class ModConfiguration {
         isTotemToolEnabled = configuration
             .getBoolean("Totem Tool", "items", isTotemToolEnabled, "Is Totem tool enabled?");
         isOfanixEnabled = configuration.getBoolean("Ofanix", "items", isOfanixEnabled, "Is Ofanix tool enabled?");
+        isChestLootGenerationEnabled = configuration.getBoolean(
+            "enableChestGen",
+            "tweaks",
+            isChestLootGenerationEnabled,
+            "Should random tools appear in dungeon chests?");
         if (configuration.hasChanged()) {
             configuration.save();
         }

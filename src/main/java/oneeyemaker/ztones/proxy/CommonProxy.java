@@ -13,6 +13,7 @@ import oneeyemaker.ztones.blocks.ModBlocks;
 import oneeyemaker.ztones.gui.ModGui;
 import oneeyemaker.ztones.items.ModItems;
 import oneeyemaker.ztones.network.ModNetwork;
+import oneeyemaker.ztones.world.ChestLootGenerator;
 
 public class CommonProxy {
 
@@ -24,6 +25,7 @@ public class CommonProxy {
         ModConfiguration.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         ModBlocks.registerBlocks();
         ModItems.registerItems();
+        ChestLootGenerator.populateChests();
     }
 
     public void initialize(FMLInitializationEvent event) {
