@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.ZtoneType;
@@ -64,8 +65,67 @@ public class ModBlocks {
     }
 
     public static void registerRecipes() {
+        if (Loader.isModLoaded("dreamcraft")) {
+            GameRegistry.addRecipe(
+                new ItemStack(aurora, 8),
+                "ggg",
+                "gdg",
+                "ggg",
+                'g',
+                Blocks.glass,
+                'd',
+                new ItemStack(Items.dye, 1, OreDictionary.WILDCARD_VALUE));
+            GameRegistry
+                .addRecipe(getBlock(ZtoneType.Tile, 8), "sss", "sSs", "sss", 's', Blocks.stone_slab, 'S', Blocks.stone);
+        } else {
+            GameRegistry.addRecipe(
+                new ItemStack(aurora, 8),
+                "gg ",
+                "gdg",
+                " gg",
+                'g',
+                Blocks.glass,
+                'd',
+                new ItemStack(Items.dye, 1, OreDictionary.WILDCARD_VALUE));
+            GameRegistry
+                .addRecipe(getBlock(ZtoneType.Tile, 8), "ss ", "sSs", " ss", 's', Blocks.stone_slab, 'S', Blocks.stone);
+            GameRegistry.addRecipe(
+                new ItemStack(cleanDirt, 8),
+                "ddd",
+                "dws",
+                "sss",
+                'd',
+                Blocks.dirt,
+                's',
+                Blocks.sand,
+                'w',
+                Items.wheat_seeds);
+            addRecipe(new ItemStack(booster, 9), "rr ", 'r', "blockRedstone");
+            addRecipe(
+                new ItemStack(flatLamp, 16),
+                "igi",
+                "gGg",
+                "igi",
+                'i',
+                "ingotIron",
+                'g',
+                Blocks.glass,
+                'G',
+                "dustGlowstone");
+            GameRegistry.addShapelessRecipe(new ItemStack(flatLamp), new ItemStack(flatTransparentLamp));
+            GameRegistry.addShapelessRecipe(new ItemStack(flatTransparentLamp), new ItemStack(flatDarkenedLamp));
+            GameRegistry.addShapelessRecipe(new ItemStack(flatDarkenedLamp), new ItemStack(flatLamp));
+            GameRegistry.addRecipe(new ItemStack(Blocks.packed_ice, 4), "ii", "ii", 'i', Blocks.ice);
+            GameRegistry.addShapelessRecipe(new ItemStack(Blocks.ice), new ItemStack(Blocks.packed_ice));
+            for (int metadata = 0; metadata < 6; metadata++) {
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(Blocks.planks, 1, metadata),
+                    new ItemStack(Blocks.wooden_slab, 1, metadata),
+                    new ItemStack(Blocks.wooden_slab, 1, metadata));
+            }
+        }
+
         ItemStack tile = new ItemStack(getBlock(ZtoneType.Tile), 1, OreDictionary.WILDCARD_VALUE);
-        addRecipe(getBlock(ZtoneType.Tile, 8), "sss", "sSs", "sss", 's', Blocks.stone_slab, 'S', Blocks.stone);
         if (ZtoneType.Agon.isEnabled()) {
             addRecipe(getBlock(ZtoneType.Agon, 8), "ttt", "tat", "ttt", 't', tile.copy(), 'a', aurora);
         }
