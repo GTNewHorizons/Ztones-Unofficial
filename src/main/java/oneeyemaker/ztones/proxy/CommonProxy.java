@@ -9,6 +9,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import oneeyemaker.ztones.ModConfiguration;
 import oneeyemaker.ztones.Tags;
+import oneeyemaker.ztones.Ztones;
 import oneeyemaker.ztones.blocks.ModBlocks;
 import oneeyemaker.ztones.gui.ModGui;
 import oneeyemaker.ztones.integration.ChiselIntegration;
@@ -19,10 +20,12 @@ import oneeyemaker.ztones.world.ChestLootGenerator;
 public class CommonProxy {
 
     public boolean isChiselLoaded = false;
+    public boolean isChiselTonesLoaded = false;
     public boolean isDreamCraftLoaded = false;
 
     public void preInitialize(FMLPreInitializationEvent event) {
         isChiselLoaded = Loader.isModLoaded("chisel");
+        isChiselTonesLoaded = Loader.isModLoaded("chiseltones");
         isDreamCraftLoaded = Loader.isModLoaded("dreamcraft");
 
         ModConfiguration.synchronizeConfiguration(event.getSuggestedConfigurationFile());
@@ -41,7 +44,11 @@ public class CommonProxy {
 
     public void postInitialize(FMLPostInitializationEvent event) {
         if (isChiselLoaded) {
-            ChiselIntegration.registerCarvingRecipes();
+            if (!isChiselTonesLoaded) {
+                ChiselIntegration.registerCarvingRecipes();
+            } else {
+                Ztones.LOG.info("Chisel integration is disabled because ChiselTones mod is present.");
+            }
         }
     }
 
