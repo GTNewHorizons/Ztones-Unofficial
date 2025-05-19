@@ -69,7 +69,7 @@ public class ModItems {
                     "C  ",
                     "   ",
                     'T',
-                    "craftingToolSoftHammer",
+                    "craftingToolSoftMallet",
                     'C',
                     "dustCoal");
             } else {
@@ -85,7 +85,7 @@ public class ModItems {
                     "C  ",
                     "   ",
                     'T',
-                    "craftingToolSoftHammer",
+                    "craftingToolSoftMallet",
                     'C',
                     "dustCharcoal");
             } else {
