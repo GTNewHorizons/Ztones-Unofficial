@@ -2,7 +2,4 @@ dependencies {
     implementation("com.github.GTNewHorizons:Chisel:2.17.20-GTNH:dev")
 
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.8.77-GTNH:dev")
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:NewHorizonsCoreMod:2.8.182:dev")
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:ForestryMC:4.11.8:dev")
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:Binnie:2.6.14:dev")
 }
